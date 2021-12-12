@@ -20,11 +20,10 @@ import com.binh.service.mapper.Mapper_Account;
 @RequestMapping("v1/api/rest/accounts")
 public class RestController_Account {
 	@Autowired private Service_Account accService;
-	@Autowired private Mapper_Account accMapper;
+//	@Autowired private Mapper_Account accMapper;
 	
 	@GetMapping("list")
-	public List<DTO_Account> getAll() {
-		List<Account> list = accService.findAll();
-		return list.stream().map(e->accMapper.convertEntityToDto(e)).collect(Collectors.toList());
+	public List<Account> getAll() {
+		return accService.findAll();
 	}
 }

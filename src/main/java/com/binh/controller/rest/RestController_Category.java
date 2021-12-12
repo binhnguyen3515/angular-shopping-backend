@@ -23,11 +23,10 @@ import com.binh.service.mapper.Mapper_Product;
 @RequestMapping("v1/api/rest/categories")
 public class RestController_Category {
 	@Autowired private Service_Category cateService;
-	@Autowired private Mapper_Category cateMapper;
+//	@Autowired private Mapper_Category cateMapper;
 	
 	@GetMapping
-	public List<DTO_Category> getAll(){
-		List<Category> list = cateService.findAll();
-		return list.stream().map(e->cateMapper.convertEntityToDto(e)).collect(Collectors.toList());
+	public List<Category> getAll(){
+		return cateService.findAll();
 	}
 }
